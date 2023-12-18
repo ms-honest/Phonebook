@@ -36,18 +36,19 @@ public class Phonebook {
     /**
      * @param name is The name of the contact who we are looking for
      * if we found the contact who we were looking for, we show the information
-     * @return 1 if we found contact and 0 if we couldn't find it
+     * @return true if we found contact and false if we couldn't find it
     */
-    public int getContact(String name){
+    public boolean getContact(String name){
+        name=name.toLowerCase();
         for (Person contact : contacts) {
             if (contact == null)
-                return 0;
+                return false;
             else if (Objects.equals(contact.getName(), name)) {
                 System.out.println(contact);
-                return 1;
+                return true;
             }
         }
-        return 0;
+        return false;
     }
 
     /**
