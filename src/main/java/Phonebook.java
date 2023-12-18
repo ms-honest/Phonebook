@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class Phonebook {
@@ -22,6 +23,7 @@ public class Phonebook {
      * @return  is the phone number or an error (happens when we didn't find contact)
      */
     public String getPhoneNumber(String name){
+        name=name.toLowerCase();
         for (Person contact : contacts) {
             if(contact == null)
                 return "Contact Not Found";
