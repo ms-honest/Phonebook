@@ -3,7 +3,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Phonebook_Test {
     Phonebook phonebook = new Phonebook();
     Person person1 = new Person("zra", "09399912612");
+    Person person3 =new Person("mahi","09123456784");
     Person person2 =new Person("mahi","09123456789");
+   // Person person3 =new Person("mahi","09123456784");
     @Test
     public void getPhoneNumber_Test(){
         phonebook.addContact(person1);
@@ -25,5 +27,14 @@ public class Phonebook_Test {
         assertEquals(false, phonebook.getContact("tina"));
         assertEquals(false, phonebook.getContact(" "));
 
+    }
+
+    @Test
+    public void updateContactName_Test(){
+        phonebook.addContact(person1);
+        //phonebook.addContact(person2);
+        phonebook.addContact(person3);
+        phonebook.addContact(person2);
+        assertEquals(1, phonebook.updateContactName("mahi","tina"));
     }
 }

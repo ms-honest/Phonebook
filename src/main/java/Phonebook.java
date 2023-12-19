@@ -63,6 +63,7 @@ public class Phonebook {
                 return 0;
             else if (Objects.equals(contact.getName(), name)) {
                 contact.setName(newName);
+                System.out.println(contact);
                 return 1;
             }
         }
