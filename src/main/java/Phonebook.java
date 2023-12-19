@@ -58,13 +58,21 @@ public class Phonebook {
      * @return 1 if changing was successful and 0 if it missed
      */
     public int updateContactName(String name, String newName){
+        name=name.toLowerCase();
+        newName=newName.toLowerCase();
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
             else if (Objects.equals(contact.getName(), name)) {
-                contact.setName(newName);
-                System.out.println(contact);
-                return 1;
+                if(!newName.equals(" "))
+                {
+                    contact.setName(newName);
+                    System.out.println(contact);
+                    return 1;
+                }else{
+                    System.out.println("weite the name");
+                    return 0;
+                }
             }
         }
         return 0;
@@ -76,12 +84,19 @@ public class Phonebook {
      * @return 1 if changing was successful and 0 if it missed
      */
     public int updateContactPhoneNumber(String name, String newPhone){
+        name=name.toLowerCase();
+        String[] phone=newPhone.split("");
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
             else if (Objects.equals(contact.getName(), name)) {
-                contact.setPhone(newPhone);
-                return 1;
+                if(phone.length==11 && phone[0].equals("0") && phone[1].equals("9")){
+                    contact.setPhone(newPhone);
+                    return 1;
+                }else{
+                    System.out.println("phone number is not correct");
+                    return 0;
+                }
             }
         }
         return 0;
