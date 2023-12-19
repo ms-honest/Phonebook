@@ -108,16 +108,20 @@ public class Phonebook {
      * @return 1 if deleting was successful and 0 if it wasn't
      */
     public int deleteContact(String name){
+        name=name.toLowerCase();
         for (Person contact : contacts) {
             if (contact == null)
                 return 0;
-            if(Objects.equals(contact.getName(), name)){
+            if(Objects.equals(contact.getName(), name)) {
                 contacts.remove(contact);
+                for (Person contact2 : contacts) {
+                    System.out.println(contact2);
+                }
                 return 1;
             }
-        }
+            }
         return 0;
-    }
+        }
 
     /**
      * A method to get all of our contacts in once
