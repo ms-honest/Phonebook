@@ -136,11 +136,11 @@ public class Phonebook {
      * here we can hide all contacts at once
      */
     public void setAllContactsHidden(){
-        for (Person contact : contacts) {
-            if(contact == null)
-                return;
-            contact.setHidden();
-        }
+            for (Person contact : contacts){
+                if(contact == null)
+                    return;
+                contact.setHidden();
+            }
     }
     /**
      * As a security part of this phonebook, we created this function

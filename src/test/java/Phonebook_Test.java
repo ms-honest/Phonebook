@@ -60,4 +60,17 @@ public class Phonebook_Test {
         assertEquals(0, phonebook.deleteContact("tAra"));
         assertEquals(0, phonebook.deleteContact("ava"));
     }
+
+    @Test
+    public void setAllContactsHidden_Test6()
+    {
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        phonebook.addContact(person3);
+        person1.setHidden();
+        person2.setHidden();
+        assertEquals(true, person1.isHidden());
+        assertEquals(true, person2.isHidden());
+        assertEquals(false, person3.isHidden());
+    }
 }
