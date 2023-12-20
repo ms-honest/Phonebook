@@ -73,4 +73,18 @@ public class Phonebook_Test {
         assertEquals(true, person2.isHidden());
         assertEquals(false, person3.isHidden());
     }
+
+    @Test
+    public void setAllContactsUnHidden_test7()
+    {
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        phonebook.addContact(person3);
+        person1.setUnHidden();
+        person2.setUnHidden();
+        person3.setHidden();
+        assertEquals(false, person1.isHidden());
+        assertEquals(false, person2.isHidden());
+        assertEquals(true, person3.isHidden());
+    }
 }
