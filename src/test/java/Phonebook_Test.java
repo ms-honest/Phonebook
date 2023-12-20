@@ -1,10 +1,20 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class Phonebook_Test {
     Phonebook phonebook = new Phonebook();
     Person person1 = new Person("zra", "09399912612");
     Person person2 =new Person("mahi","09123456789");
     Person person3 =new Person("tara","09123456789");
+
+    @Test
+    public void addContact_Test0(){
+        phonebook.addContact(person1);
+        phonebook.addContact(person2);
+        assertEquals(1,person1.getId());
+        assertEquals(2,person2.getId());
+    }
     @Test
     public void getPhoneNumber_Test1(){
         phonebook.addContact(person1);
